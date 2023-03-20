@@ -227,11 +227,11 @@ class Main:
                     
                 #print(expTable[account.explevel][1])
                 #print(account.exppoints)
-                if account.exppoints >= int(expTable[account.explevel][1]):
-                    account.exppoints = account.exppoints - int(expTable[account.explevel][1])
+                if account.exppoints >= int(expTable[account.explevel-1][1]):
+                    account.exppoints = account.exppoints - int(expTable[account.explevel-1][1])
                     account.explevel = account.explevel + 1
 
-                    print("--------\n\nYou have reached the requested leve!.\n\nYour new level is:\nLevel: " + str(account.explevel) + "\nExperience: " + str(account.exppoints) + " / " + str(expTable[account.explevel][1]) + "\nCosting: " + f'{int(account.gold * -1):,}' + " gold\n\n--------")
+                    print("--------\n\nYou have reached the requested leve!.\n\nYour new level is:\nLevel: " + str(account.explevel) + "\nExperience: " + str(account.exppoints) + " / " + str(expTable[account.explevel-1][1]) + "\nCosting: " + f'{int(account.gold * -1):,}' + " gold\n\n--------")
                     
                     
                     #option = input("Do you want to:\n1: see cards which have been updated\n2: calculate again with different desired level\n3: Exit\n")
