@@ -12,8 +12,9 @@ class Card:
 
 headers = {
     "Accept": "application/json",
-    "authorization": "Bearer "+auth
+    "authorization": "Bearer MYAPIKEY"
 
 }
+
 
 
