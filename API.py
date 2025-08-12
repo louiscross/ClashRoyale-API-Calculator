@@ -26,7 +26,27 @@ class Main:
         account_gold = 0
         account_level = player_data['expLevel']
         account_exp = player_data['expPoints']
-        account = Account(account_name, account_gold,account_level, account_exp)
+        account_elite_wild_cards = 0
+        
+        # Initialize all magic items to 0 (these would be manually entered later)
+        account_common_wild_cards = 0
+        account_rare_wild_cards = 0
+        account_epic_wild_cards = 0
+        account_legendary_wild_cards = 0
+        account_champion_wild_cards = 0
+        account_common_book = 0
+        account_rare_book = 0
+        account_epic_book = 0
+        account_legendary_book = 0
+        account_champion_book = 0
+        account_magic_coin = 0
+        
+        account = Account(account_name, account_gold, account_level, account_exp, account_elite_wild_cards,
+                         account_common_wild_cards, account_rare_wild_cards, account_epic_wild_cards, 
+                         account_legendary_wild_cards, account_champion_wild_cards,
+                         account_common_book, account_rare_book, account_epic_book, 
+                         account_legendary_book, account_champion_book,
+                         account_magic_coin)
         return account
     
     # function to get all of the cards in your account, formatting them to cover name, card level, amount of cards and the card max level. This will be applied to object class and listed in card_data
@@ -248,8 +268,13 @@ class Main:
 
 
 if __name__ == '__main__':
-    player_tag = input("please enter clash royale player tag, without the # : ")
-    auth = input("please enter auth key from clash royale API: ")
+    # need to replace player tag back to input once testing
+    #player_tag = input("please enter clash royale player tag, without the # : ")
+    player_tag = "UU8R2V8J"
+
+    #auth = input("please enter auth key from clash royale API: ")
+    auth = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjhmYTdjMTY2LTc0MzctNGZlNy1iOGI3LTU2NWRlODlhMmVkOCIsImlhdCI6MTc1NTAyMjc2MSwic3ViIjoiZGV2ZWxvcGVyL2YxYzQ1ZTg1LTc4NjQtOGJjYi00OWE4LTNjZGU4YzJhYjYxNiIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI1LjcwLjI2LjExMSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.kAYgynEBxo2SeQ5R55v63J7UDumUacBdqWgbgWJT0jlprTuD83OADUBiNaiB2dbbz1Q2KBAdYDw7tqMMdpUneg"
+
     main = Main(player_tag,auth)
     main.run()
 
