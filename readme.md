@@ -45,13 +45,7 @@ The first is a valid token from your [Clash Royale developer account](https://de
 If you do not have an account create one for free, and once created follow through to [your account](https://developer.clashroyale.com/#/account) and create a key. The token generated will be needed for your program to run. and will be prompted for when the API.py is ran.
 
    
-it is important you remove whitespaces before and after when inputting otherwise you will get a 403 response for invalid token.
-
-Secondly you will need to find your player tag for clash royale. This can be found within the game on your profile as a # followed by 8 characters. you will need to use this when prompted by the program.
-
-   it is also important to mention here that you should not include the hashtag in the variable. the request uses %23 in place of the hashtag abd has been added already. Failure to remove this will result in a 404 error.
-
-Lastly you will be asked for the level you are wanting to obtain. When making it to this point all of the previous variables are correct and you are almost there. All you need to do is enter a valid level, if not it should be error handled and you will be reprompted. 
+You just need to run clashroyaleUI.py to see the maximum available level
 
 
    

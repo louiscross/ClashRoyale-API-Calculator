@@ -270,10 +270,6 @@ class Main:
 if __name__ == '__main__':
     # need to replace player tag back to input once testing
     #player_tag = input("please enter clash royale player tag, without the # : ")
-    player_tag = "UU8R2V8J"
-
-    #auth = input("please enter auth key from clash royale API: ")
-    auth = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjhmYTdjMTY2LTc0MzctNGZlNy1iOGI3LTU2NWRlODlhMmVkOCIsImlhdCI6MTc1NTAyMjc2MSwic3ViIjoiZGV2ZWxvcGVyL2YxYzQ1ZTg1LTc4NjQtOGJjYi00OWE4LTNjZGU4YzJhYjYxNiIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI1LjcwLjI2LjExMSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.kAYgynEBxo2SeQ5R55v63J7UDumUacBdqWgbgWJT0jlprTuD83OADUBiNaiB2dbbz1Q2KBAdYDw7tqMMdpUneg"
 
     main = Main(player_tag,auth)
     main.run()
