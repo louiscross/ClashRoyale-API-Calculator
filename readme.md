@@ -4,7 +4,9 @@
 This is a calculator which allows you to calculate the gold required to reach a desired level relative to the available cards in your account.
 This program is build on [Python 3.9](https://www.python.org/downloads/release/python-390/) and uses the [Clash Royale API](https://developer.clashroyale.com/#/).
 
-<img width="1293" height="1174" alt="image" src="https://github.com/user-attachments/assets/7a50697a-3376-4dac-afd4-d2d9ff11a38c" />
+https://github.com/user-attachments/assets/2c9e87ea-1a88-456d-b4a6-6f4e3910c7d7
+
+
 
 ## How to compile and run
 
@@ -63,5 +65,6 @@ Why did i make this? I have been playing the game for abit of time with friends 
 
 
    
+
 
 
