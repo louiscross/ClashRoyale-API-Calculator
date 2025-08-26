@@ -10,11 +10,3 @@ class Card:
     # note maxLevel is not needed to be displayed. this is only needed for the upgrade of one level for one type of card.
     return f"{self.name} (Level: {self.level}, Count: {self.count})"
 
-headers = {
-    "Accept": "application/json",
-    "authorization": "Bearer MYAPIKEY"
-
-}
-
-
-
