@@ -133,7 +133,7 @@ class ModernClashRoyaleUI:
         
         # Player Tag
         tag_label = tk.Label(card_frame,
-                            text="Player Tag (without #):",
+                            text="Enter Player Tag:",
                             font=('Segoe UI', 11, 'bold'),
                             bg=self.colors['bg_medium'],
                             fg=self.colors['text_light'],
@@ -144,7 +144,7 @@ class ModernClashRoyaleUI:
         tag_entry_frame.pack(fill='x', padx=20, pady=(0, 10))
         
         tag_hint = tk.Label(card_frame,
-                           text="Must be exactly 8 characters (letters and numbers)",
+                           text="Must be 7, 8, or 9 characters (letters and numbers)",
                            font=('Segoe UI', 9),
                            bg=self.colors['bg_medium'],
                            fg='#bdc3c7',
@@ -153,7 +153,7 @@ class ModernClashRoyaleUI:
         
         # Auth Token
         token_label = tk.Label(card_frame,
-                              text="API Auth Token:",
+                              text="Enter API Token:",
                               font=('Segoe UI', 11, 'bold'),
                               bg=self.colors['bg_medium'],
                               fg=self.colors['text_light'],
@@ -190,6 +190,9 @@ class ModernClashRoyaleUI:
     def validate_credentials(self):
         """Validate the entered credentials"""
         player_tag = self.tag_entry.get().strip().upper()
+        # Allow users to paste tags with leading '#'
+        if player_tag.startswith('#'):
+            player_tag = player_tag[1:]
         auth_token = self.token_entry.get().strip()
         
         # Clear debug
@@ -206,9 +209,9 @@ class ModernClashRoyaleUI:
             self.show_error("Please enter a valid API token")
             return
         
-        # Validate player tag format
-        if not player_tag.isalnum() or len(player_tag) != 8:
-            self.show_error("Player tag must be exactly 8 characters (letters and numbers)")
+        # Validate player tag format: must be alphanumeric and length 7, 8, or 9
+        if (not player_tag.isalnum()) or (len(player_tag) not in (7, 8, 9)):
+            self.show_error("Player tag must be 7, 8, or 9 characters (letters and numbers)")
             return
         
         # Disable button and show loading
@@ -253,8 +256,15 @@ class ModernClashRoyaleUI:
                 # Update UI on main thread
                 self.root.after(0, lambda: self.show_success(debug_data))
             else:
-                debug_data['error'] = f"API Error: {response.status_code} - {response.reason}"
-                self.root.after(0, lambda: self.show_error(f"Validation failed: {response.status_code} - {response.reason}", debug_data))
+                # Provide clearer messaging depending on failure type
+                if response.status_code == 404:
+                    msg = "Player tag appears to be incorrect or not found. Length is valid but the tag does not match any player."
+                elif response.status_code in (401, 403):
+                    msg = "API token is invalid or not authorized for your IP. Please check your token."
+                else:
+                    msg = f"Validation failed: {response.status_code} - {response.reason}"
+                debug_data['error'] = msg
+                self.root.after(0, lambda: self.show_error(msg, debug_data))
                 
         except requests.exceptions.RequestException as e:
             error_msg = str(e)
