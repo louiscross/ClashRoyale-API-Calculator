@@ -18,6 +18,9 @@ on the command line.
 
 - Then run ClashRoyaleUI.py to login
 
+<img width="1169" height="502" alt="image" src="https://github.com/user-attachments/assets/64c6085d-e4c0-4f81-8371-a3ecf934ca55" />
+
+
 apart from this, there are two pieces of data you need to find in order to use the tool fully: 
 
 - The first is a valid token from your [Clash Royale developer account](https://developer.clashroyale.com/#/).
@@ -60,4 +63,5 @@ Why did i make this? I have been playing the game for abit of time with friends 
 
 
    
+
 
